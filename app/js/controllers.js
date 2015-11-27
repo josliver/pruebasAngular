@@ -44,3 +44,20 @@ angular.module('myApp.controllers').controller('TimeoutController', function($sc
         }, 3000);*/
     };
 });
+
+angular.module('myApp.controllers').controller('Controller1', function($scope, $location) {
+    $scope.message = "Hello World";
+    
+    $scope.loadView2 = function() {
+        $location.path('/view2/'+$scope.firstname+'/'+$scope.lastname);
+    };
+    
+});
+
+angular.module('myApp.controllers').controller('Controller2', function($scope, $routeParams, names) {
+    $scope.now = new Date();
+    $scope.firstname = $routeParams.firstname;
+    $scope.lastname = $routeParams.lastname;
+    $scope.names = names;
+    
+});
